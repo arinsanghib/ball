@@ -4,6 +4,7 @@
  Here is a summary of the ShapeSpawner script:
 
 It randomly spawns cube and sphere prefabs in front of a player camera.
+
 The prefabs, camera reference, and spawn distances are specified.
 It loads color configuration data from a JSON file.
 This defines possible colors for each shape type.
