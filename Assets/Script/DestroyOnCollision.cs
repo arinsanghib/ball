@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class DestroyOnCollision : MonoBehaviour
 {
-    public GameObject destroyedPrefab; // Prefab to spawn when object is destroyed
+    public GameObject destroyedPrefab;
+    // Prefab to spawn when object is destroyed
 
     private void OnCollisionEnter(Collision collision)
     {

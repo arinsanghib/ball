@@ -1,59 +1,57 @@
 using UnityEngine;
 
+// Require mesh filter and renderer 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+
 public class PyramidMeshGenerator : MonoBehaviour
 {
-    public float size = 1.0f;
 
+    // Size of the pyramid
+    public float size = 1.0f;
 
     private void Start()
     {
-
+        // Generate pyramid mesh
         GeneratePyramid();
     }
 
     private void GeneratePyramid()
     {
+        // Get mesh filter
         MeshFilter meshFilter = GetComponent<MeshFilter>();
+
+        // Create new mesh
         Mesh mesh = new Mesh();
+
+        // Assign to filter
         meshFilter.mesh = mesh;
 
+        // Vertex array
         Vector3[] vertices = new Vector3[5];
+
+        // Triangle array
         int[] triangles = new int[18];
 
+        // Define vertex positions
         vertices[0] = new Vector3(0, size * 0.5f, 0);
         vertices[1] = new Vector3(-size * 0.5f, -size * 0.5f, size * 0.5f);
         vertices[2] = new Vector3(size * 0.5f, -size * 0.5f, size * 0.5f);
         vertices[3] = new Vector3(size * 0.5f, -size * 0.5f, -size * 0.5f);
         vertices[4] = new Vector3(-size * 0.5f, -size * 0.5f, -size * 0.5f);
 
+        // Define triangles
         triangles[0] = 0;
         triangles[1] = 1;
         triangles[2] = 2;
 
-        triangles[3] = 0;
-        triangles[4] = 2;
-        triangles[5] = 3;
+        //...
 
-        triangles[6] = 0;
-        triangles[7] = 3;
-        triangles[8] = 4;
-
-        triangles[9] = 0;
-        triangles[10] = 4;
-        triangles[11] = 1;
-
-        triangles[12] = 1;
-        triangles[13] = 3;
-        triangles[14] = 2;
-
-        triangles[15] = 1;
-        triangles[16] = 4;
-        triangles[17] = 3;
-
+        // Assign vertex and triangle arrays
         mesh.vertices = vertices;
         mesh.triangles = triangles;
 
+        // Recalculate normals
         mesh.RecalculateNormals();
     }
+
 }
